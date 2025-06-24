@@ -6,38 +6,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.androidplayground.databinding.FragmentSecondBinding
+import com.example.androidplayground.databinding.FragmentTriangleBinding
 
 /**
- * A simple [Fragment] subclass as the second destination in the navigation.
+ * A simple [Fragment] that shows a red triangle.
  */
-class SecondFragment : Fragment() {
+class ThirdFragment : Fragment() {
 
-    private var _binding: FragmentSecondBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentTriangleBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        _binding = FragmentTriangleBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.buttonThird.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_ThirdFragment)
-        }
-
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+        binding.imageTriangle.setOnClickListener {
+            findNavController().navigate(R.id.action_ThirdFragment_to_SecondFragment)
         }
     }
 
